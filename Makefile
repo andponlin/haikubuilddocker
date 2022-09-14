@@ -17,3 +17,6 @@ enter:
 	docker run -it --rm -v ${PWD}/haiku:/haiku-source/haiku haiku:build bash
 clean:
 	if [ -e haiku/generated_* ]; then rm -rf haiku/generated_*; fi
+upload:
+	docker tag haiku:build nulldevil/haiku:build
+	docker push nulldevil/haiku:build
